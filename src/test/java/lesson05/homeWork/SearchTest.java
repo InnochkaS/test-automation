@@ -1,11 +1,8 @@
-package lesson05;
+package lesson05.homeWork;
 
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,10 +11,8 @@ import java.util.concurrent.TimeUnit;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.StringContains.containsString;
-import static sun.management.Agent.getText;
 
-@RunWith(JUnit4.class)
-public class FirstTest {
+public class SearchTest {
 
     static WebDriver driver;
 
@@ -33,6 +28,8 @@ public class FirstTest {
 
         driver.get("http://automationpractice.com/index.php");
         driver.manage().window().maximize();
+
+
     }
     @AfterClass
     public static void tearDown (){
@@ -40,12 +37,19 @@ public class FirstTest {
     }
 
     @Test
-    public void firstResultShoudContainExpectedText(){
+    public void searchResultHasExpectedContent(){
         driver.findElement(By.id("search_query_top")).clear();
-        driver.findElement(By.id("search_query_top")).sendKeys("Dress");
+        driver.findElement(By.id("search_query_top")).sendKeys("Printed Summer Dress");
         driver.findElement(By.id("search_query_top")).submit();
+        assertThat(driver.findElement(By.xpath("//*[@id=\"center_column\"]/div[1]/div[2]/div[2]")).getText(),
+                containsString("Showing 1 - 3 of 3 items"));
         assertThat(driver.findElement(By.xpath("//*[@id=\"center_column\"]/ul/li[1]/div/div[2]/h5/a")).getText(),
                 containsString("Printed Summer Dress"));
     }
 
 }
+
+/*
+2.2. SearchTest с одним тестом: открыть сайт, ввести в поиск "Printed Summer Dress" ,
+нажать поиск, проверить, что три результата и первый совпадает с запросом.
+ */
