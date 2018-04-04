@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -41,7 +40,7 @@ public class ATest {
 
     @Test @Ignore
     public void logInFirstType() {
-        LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+        LoginPage loginPage = new LoginPage(driver);
         AccountPage accountPage = loginPage.logIn("sotnyk.inna@gmail.com", "123456");
         assertThat(driver.findElement(By.className("page-heading")).getText(),
                 containsString("MY ACCOUNT"));
@@ -49,7 +48,7 @@ public class ATest {
 
     @Test @Ignore
     public void logInSecondType(){
-        LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.enterUsername("sotnyk.inna@gmail.com").enterPassword("123456").clickSignInBtn();
         assertThat(driver.findElement(By.className("page-heading")).getText(),
                 containsString("MY ACCOUNT"));
@@ -58,7 +57,7 @@ public class ATest {
     @Test
     public void logOut(){
         String str1 = "MY ACCOUNT";
-        LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+        LoginPage loginPage = new LoginPage(driver);
         AccountPage accountPage = loginPage.logIn("sotnyk.inna@gmail.com", "123456");
 
         (new WebDriverWait(driver, 10))
