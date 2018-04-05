@@ -61,7 +61,7 @@ public class ATest {
         AccountPage accountPage = loginPage.logIn("sotnyk.inna@gmail.com", "123456");
 
         (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.className("page-heading")), str1));
+                .until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.xpath("//*[@id=\"center_column\"]/h1")), str1));
 
         LoginPage lp2 = accountPage.signOut();
         assertThat(driver.findElement(By.id("login_form")).getText(),
