@@ -1,4 +1,4 @@
-package lesson07.g_simple_api_as_base_class;
+package lesson07.h_custom_condition;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -12,9 +12,8 @@ public class BasePage extends SimpleAPI {
         return driver;
     }
 
-    public BasePage(WebDriver driver) {
+    public BasePage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 }
-

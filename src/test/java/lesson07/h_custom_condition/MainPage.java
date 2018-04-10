@@ -1,11 +1,6 @@
-package lesson07.g_simple_api_as_base_class;
+package lesson07.h_custom_condition;
 
-import com.google.common.base.Function;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 class MainPage extends BasePage implements MainPageLocators {
 
