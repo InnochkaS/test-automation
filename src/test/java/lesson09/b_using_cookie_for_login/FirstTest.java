@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.Set;
 
@@ -38,6 +39,7 @@ public class FirstTest extends BaseTest {
 
             driver.navigate().refresh();
             assertThat(titleContains("My account"));
+
         }
     }
 }
