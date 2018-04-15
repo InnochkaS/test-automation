@@ -7,7 +7,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
-import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.Set;
 
@@ -21,25 +20,24 @@ public class FirstTest extends BaseTest {
     LoginPage loginPage = new LoginPage(driver);
     @Test
     public void loginTest(){
-        loginPage.visit;
+        loginPage.visit();
         assertThat(titleContains("Login"));
+
         loginPage.login();
         assertThat(titleContains("My account"));
 
-        //get correct cookie by name to log in
         Set<Cookie> cookies = driver.manage().getCookies();
         $(By.className("logout")).click();
         assertThat(titleContains("Login"));
+
         for(Cookie cookie : cookies){
             if(cookie.getName().contains("PrestaShop")){
                 driver.manage().addCookie(cookie);
             } else {
                 LOG.error("Ooops...");
             }
-
-            driver.navigate().refresh();
-            assertThat(titleContains("My account"));
-
         }
+        driver.navigate().refresh();
+        assertThat(titleContains("My account"));
     }
 }
