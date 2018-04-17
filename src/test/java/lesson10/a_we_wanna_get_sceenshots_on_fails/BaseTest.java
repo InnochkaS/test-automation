@@ -34,7 +34,7 @@ public class BaseTest extends SimpleAPI {
 
         private void captureScreenshot(String methodName) {
             File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            String path = System.getProperty("reports.path")+"/screenshots/" + screenshot.getName();
+            String path = System.getProperty("report.path")+"/screenshots/" + screenshot.getName();
 
             try {
                 FileUtils.copyFile(screenshot, new File(path));

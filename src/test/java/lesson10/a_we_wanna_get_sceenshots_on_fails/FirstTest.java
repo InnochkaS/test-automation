@@ -23,7 +23,7 @@ public class FirstTest extends BaseTest {
         loginPage.visit();
         assertThat(titleContains("Login"));
         loginPage.login();
-        assertThat(titleContains("My account"));
+        assertThat(titleContains("My accountgrgtrgtr"));
 
     }
 }
