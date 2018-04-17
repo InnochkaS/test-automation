@@ -53,6 +53,7 @@ public class FirstTest {
 
 }
 
+//query2 is not found because element has old copy
 /* not found text because new element was not loaded before comparecing
 java.lang.AssertionError:
 Expected: a string containing "T-shirt"
