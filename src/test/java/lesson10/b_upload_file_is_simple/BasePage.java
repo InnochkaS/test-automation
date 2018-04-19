@@ -9,7 +9,6 @@ public class BasePage extends SimpleAPI {
 
     @Override
     WebDriver getWebDriver() {
-
         return driver;
     }
 

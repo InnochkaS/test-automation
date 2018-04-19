@@ -1,6 +1,5 @@
 package lesson10.b_upload_file_is_simple;
 
-
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,38 +18,33 @@ import java.io.IOException;
 
 public class BaseTest extends SimpleAPI {
 
-    protected static WebDriver driver;
+    private static final Logger LOG = LogManager.getLogger(BaseTest.class);
 
-    private static final Logger LOG = LogManager.getLogger(FirstTest.class);
+    protected static WebDriver driver;
 
     @Rule
     public TestWatcher watcher = new TestWatcher() {
         @Override
         protected void failed(Throwable e, Description description) {
-            captureScreenshot(description.getMethodName());
+            captureScreenshoot(description.getMethodName());
         }
 
-        private void captureScreenshot(String methodName) {
-            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            String path = System.getProperty("report.path")+"/screenshots/" + screenshot.getName();
+        private void captureScreenshoot(String methodName) {
+            File screenshot = ((TakesScreenshot)driver)
+                    .getScreenshotAs(OutputType.FILE);
+            String path = System.getProperty("report.path") + "/screenshots/" + screenshot.getName();
 
             try {
                 FileUtils.copyFile(screenshot, new File(path));
-                LOG.error("Screenshot was got :"+ screenshot.getName());
+                LOG.error("Screenshot was got: " + screenshot.getName());
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
     };
 
-
     @BeforeClass
-
     public static void setUp(){
-
-//        System.setProperty("webdriver.chrome.driver", "C:/Dev/Drivers/chromedriver");
-
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
