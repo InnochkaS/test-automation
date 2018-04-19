@@ -1,8 +1,6 @@
-package lesson07.h_custom_condition;
+package lesson07.homeWork;
 
-import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,7 +9,7 @@ public class BaseTest extends SimpleAPI {
 
     protected static WebDriver driver;
 
-    @Before
+    @BeforeClass
     public static void setUp(){
 
         System.setProperty("webdriver.chrome.driver", "/Users/Andrew/Downloads/chromedriver2");
@@ -20,7 +18,7 @@ public class BaseTest extends SimpleAPI {
         driver.manage().window().maximize();
     }
 
-    @After
+    @AfterClass
     public static void tearDown(){
         driver.quit();
     }

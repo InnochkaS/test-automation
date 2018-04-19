@@ -3,7 +3,6 @@ package lesson06.homeWork;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
@@ -20,7 +19,9 @@ public class LoginPage {
     private WebDriver driver;
 
     public LoginPage(WebDriver driver) {
+
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     public AccountPage logIn(String username, String password) {
@@ -45,7 +46,7 @@ public class LoginPage {
     public AccountPage clickSignInBtn() {
 
         loginButton.click();
-        return PageFactory.initElements(driver, AccountPage.class);
+        return new AccountPage(driver);
     }
 }
 
