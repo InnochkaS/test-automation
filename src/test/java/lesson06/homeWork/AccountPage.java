@@ -13,13 +13,15 @@ public class AccountPage {
     private WebDriver driver;
 
     public AccountPage(WebDriver driver) {
+
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     public LoginPage signOut() {
 
         signOutButton.click();
-        return PageFactory.initElements(driver, LoginPage.class);
+        return new LoginPage(driver);
     }
 }
 
