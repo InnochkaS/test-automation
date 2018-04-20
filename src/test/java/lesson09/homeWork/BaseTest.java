@@ -1,4 +1,4 @@
-package lesson09.b_using_cookie_for_login;
+package lesson09.homeWork;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
