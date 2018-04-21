@@ -22,7 +22,8 @@ public class FirstTest extends BaseTest {
         assertThat(titleContains("Google"));
         $(By.id("qbi")).click();
         $(By.linkText("Завантажте зображення")).click();
-        $(By.id("qbfile")).sendKeys("C:\\Users\\vmuser\\IdeaProjects\\test-automation\\reports\\IDE-test-build-2018-04-17_19-29-33\\screenshots\\screenshot8853694773638643570.png");
+        $(By.id("qbfile")).sendKeys("Users\\Andrew\\Downloads\\inna\\projects\\test-automation\\reports\\IDE-test-build-2018-04-20_21-41-23\\screenshots\\screenshot8614557580037202028.png");
         assertThat(textToBePresentInElementLocated(By.xpath("//*[@id=\"topstuff\"]/div/div[2]/a"), "live edit prestashop 1.6"));
     }
 }
+

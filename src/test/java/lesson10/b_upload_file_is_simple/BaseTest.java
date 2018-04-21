@@ -45,6 +45,9 @@ public class BaseTest extends SimpleAPI {
 
     @BeforeClass
     public static void setUp(){
+
+        System.setProperty("webdriver.chrome.driver", "/Users/Andrew/Downloads/chromedriver2");
+
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
